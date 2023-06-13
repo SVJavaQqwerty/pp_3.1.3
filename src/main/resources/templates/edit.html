@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit user</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:user="user">
+    <form th:action="@{/admin/user/edit/{id}(id=${user.getId()})}" th:method="post">
+        <input type="hidden" name="_method" value="put"/>
+        <input type="text" th:value="${user.id}" name="id"> </br>
+        <input type="text" th:value="${user.firstName}" name="firstName" placeholder="Ввеите имя"/> </br>
+        <input type="text" th:value="${user.lastName}" name="lastName" placeholder="Ввеите второе имя"/> </br>
+        <input type="text" th:value="${user.age}" name="age" placeholder="Введите возраст"/> </br>
+        <input type="text" th:value="${user.email}" name="email" placeholder="Ввеите свой e-mail"/> </br>
+        <input type="password" name="password"/> </br>
+        <button type="submit">Добавить пользователя</button>
+    </form>
+</div>
+</body>
+</html>

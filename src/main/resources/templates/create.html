@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">  <!-- xmlns="http://www.w3.org/1999/html"-->
+<head>
+  <title>Create user</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin/user/new}">
+  <input type="text" name="firstName" placeholder="Ввеите имя"/> </br>
+  <input type="text" name="lastName" placeholder="Ввеите второе имя"/> </br>
+  <input type="text" name="age" placeholder="Введите возраст"/> </br>
+  <input type="text" name="email" placeholder="Ввеите свой e-mail"/> </br>
+  <input type="password" name="password"/> </br>
+  <input type="radio" id="ROLE_ADMIN" name="role" value="ROLE_ADMIN"> <label>ADMIN</label>
+  <input type="radio" id="ROLE_USER" name="role" value="ROLE_USER"> <label>USER</label> </br>
+  <button type="submit">Добавить пользователя</button>
+</form>
+</body>
+</html>

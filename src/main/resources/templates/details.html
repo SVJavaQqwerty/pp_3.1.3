@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <title>Create user</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:user="user">
+    <p th:text="${user.id}"/>
+    <p th:text="${user.firstName}"/>
+    <p th:text="${user.lastName}"/>
+    <p th:text="${user.email}"/>
+    <p th:text="${user.age}"/>
+    <div th:each="role : ${roles}">
+        <p th:text="${role.getRole}"/>
+    </div>
+    <br/>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        This content is only shown to administrators.
+    <form th:action="'edit/' + ${user.id}" th:method="get">
+        <button type="submit">Редактировать</button>
+    </form>
+    <br/>
+    <form th:action="'delete/' + ${user.id}" th:method="delete">
+        <button type="submit">Удалить</button>
+    </form>
+    </div>
+</div>
+</body>
+</html>

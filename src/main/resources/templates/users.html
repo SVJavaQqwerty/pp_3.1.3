@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Web Content</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="${principal.getName()}" ></p>
+
+<div th:each="user : ${users}">
+  <p th:text="${user.lastName} + ' ' + ${user.firstName}"> </p>
+  <a th:href="'admin/user/' + ${user.id}">Посмотреть</a>
+</div>
+</br>
+<a href="admin/user/new">Добавить пользователя</a>
+</body>
+</html>
